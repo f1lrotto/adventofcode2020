@@ -21,7 +21,6 @@ def ans(list):  # vypocita vysledok
     return list[0]*list[1]
 
 
-print('poggers')
 x = find(nums)
 x = x[0]  # je tam duplikant
 
