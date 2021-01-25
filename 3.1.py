@@ -1,6 +1,5 @@
 from math import *
 
-truefalse = True
 slopes = [[1, 1], [3, 1], [5, 1], [7, 1]]
 l = []
 
@@ -21,11 +20,13 @@ for u in range(4):
     l.append(pocetbuch)
     f.close()
 
+truefalse = True
 
 f = open("3.txt", "r")
 pocetbuch = 0
-if truefalse:
-    for riadok in f:
+index = 0
+for riadok in f:
+    if truefalse:
         if index <= 30:
             if riadok[index] == "#":
                 pocetbuch += 1
@@ -34,12 +35,11 @@ if truefalse:
             index = abs(index)
             if riadok[index] == "#":
                 pocetbuch += 1
-        index += slopes[u][0]
+        index += 1
         truefalse = False
     else:
         truefalse = True
-
-    l.append(pocetbuch)
+l.append(pocetbuch)
 
 f.close()
 
