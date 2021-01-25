@@ -22,8 +22,6 @@ def ans(list):  # vypocita vysledok
 
 
 x = find(nums)
-x = x[0]  # je tam duplikant
-
-
+x = x[0]  # je tam duplikanty
 print(ans(x))
 input()
