@@ -11,7 +11,7 @@ pid(Passport ID) - a nine-digit number, including leading zeroes.
 '''
 
 documents = open("4.txt", "r")
-
+eye_color = ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"]
 people = [[]]  # list udajov individualnych ludi
 count = 0
 
@@ -65,5 +65,59 @@ for person in people:  # xdxd
 
     person[6] = person[6].split(":")
 
-for person in people:
-    print(person)
+templist = []
+for person in people:  # filter parametrov vek
+    if person[0][1] in range(1920, 2003):
+        templist.append(person)
+people = templist
+
+templist = []
+for person in people:  # filter parametrov oci
+    if person[1][1] in eye_color:
+        templist.append(person)
+people = templist
+
+templist = []
+for person in people:  # filter parametrov issue year
+    if person[5][1] in range(2010, 2021):
+        templist.append(person)
+people = templist
+
+templist = []
+for person in people:  # filter parametrov issue ID
+    if len(person[6][1]) == 9:
+        templist.append(person)
+people = templist
+
+templist = []
+for person in people:  # filter parametrov vlasy
+    if '#' in person[3][1]:
+        templist.append(person)
+people = templist
+
+templist = []
+for person in people:  # filter parametrov vek
+    if person[2][1] in range(2020, 2031):
+        templist.append(person)
+people = templist
+
+templist = []
+for person in people:  # filter parametrov vyska
+    if len(person[4][1]) == 5:
+        if 'cm' in person[4][1]:
+            person[4][1] = person[4][1][:3]
+            person[4][1] = int(person[4][1])
+            if person[4][1] in range(150, 194):
+                templist.append(person)
+            person[4][1] = str(person[4][1])
+for person in people:  # filter parametrov vyska
+    if len(person[4][1]) == 4:
+        if 'in' in person[4][1]:
+            person[4][1] = person[4][1][:2]
+            person[4][1] = int(person[4][1])
+            if person[4][1] in range(59, 77):
+                templist.append(person)
+
+people = templist
+
+print(len(people))
